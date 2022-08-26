@@ -20,18 +20,18 @@
 .text:0000000000012D1B                 mov     [rax+10h], rbp
 .text:0000000000012D1F                 mov     [rax+18h], rsi
 .text:0000000000012D23                 mov     [rax+20h], rdi
-.text:0000000000012D27                 mov     rdi, [rdx+0B8h] ; # CurrentStackLocation
+.text:0000000000012D27                 mov     rdi, [rdx+0B8h] 
 .text:0000000000012D2E                 mov     [rax-8], r12
-.text:0000000000012D32                 mov     qword ptr [rdx+38h], 0 ; # IoStatusBlock.Information
-.text:0000000000012D3A                 mov     r12, [rcx+40h]  ; # DeviceObject->ExtensionSize
+.text:0000000000012D32                 mov     qword ptr [rdx+38h], 0 
+.text:0000000000012D3A                 mov     r12, [rcx+40h]  
 .text:0000000000012D3E                 mov     [rax-10h], r13
-.text:0000000000012D42                 mov     r13, [rdx+18h]  ; # AssociatedIrp->SystemBuffer
+.text:0000000000012D42                 mov     r13, [rdx+18h]  
 .text:0000000000012D46                 mov     [rax-18h], r14
-.text:0000000000012D4A                 mov     al, [rdi]       ; # MajorFunction
+.text:0000000000012D4A                 mov     al, [rdi]       
 .text:0000000000012D4C                 test    al, al
-.text:0000000000012D4E                 mov     r14d, [rdi+10h] ; # InputBufferLength
+.text:0000000000012D4E                 mov     r14d, [rdi+10h] 
 .text:0000000000012D52                 mov     rbp, rcx
-.text:0000000000012D55                 mov     ecx, [rdi+8]    ; # OutputBufferLength
+.text:0000000000012D55                 mov     ecx, [rdi+8]    
 .text:0000000000012D58                 mov     rsi, rdx
 .text:0000000000012D5B                 mov     ebx, 0C0000002h
 .text:0000000000012D60                 jz      loc_1312D
@@ -39,7 +39,7 @@
 .text:0000000000012D68                 jz      loc_1312D
 .text:0000000000012D6E                 cmp     al, 0Eh
 .text:0000000000012D70                 jnz     def_12DD1       ; jumptable 0000000000012DD1 default case, cases -1018163631--1018163629,-1018163627--1018163625,-1018163623--1018163621,-1018163619--1018163617,-1018163615--1018163613
-.text:0000000000012D76                 mov     r8d, [rdi+18h]  ; # IoControlCode
+.text:0000000000012D76                 mov     r8d, [rdi+18h]  
 .text:0000000000012D7A                 cmp     r8d, 0C3502800h
 .text:0000000000012D81                 ja      loc_12FF4
 .text:0000000000012D87                 cmp     r8d, 0C3502800h
@@ -170,7 +170,7 @@
 .text:0000000000012EEF                 mov     r8d, r14d
 .text:0000000000012EF2                 mov     rdx, r13
 .text:0000000000012EF5                 mov     rcx, rbp
-.text:0000000000012EF8                 call    map_physical    ; # map_physical(DeviceObject, SystemBuffer, InputBufferLength, OutputBufferLength)
+.text:0000000000012EF8                 call    map_physical    
 .text:0000000000012EF8                                         ;
 .text:0000000000012EFD                 test    eax, eax
 .text:0000000000012EFF                 mov     ebx, eax
