@@ -1,3 +1,4 @@
+#include <ntddk.h>
 
 struct _v2{
         PVOID Unknown1;     // 0x00
@@ -47,13 +48,13 @@ NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
 
         case 0xC3500E68:
         {
-            status = sub_11C70(DeviceObject, Irp, stack);                   // recheck params
+            status = sub_11C70(DeviceObject, Irp, stack);                   
             break;
         }
 
         case 0xC3500E6C:
         {
-            status = sub_11AF0(DeviceObject, Irp, stack);                   // recheck params
+            status = sub_11AF0(DeviceObject, Irp, stack);                   
             break;
         }
 
@@ -67,7 +68,7 @@ NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
 
         case 0xC3502000:
         {
-            status = sub_11570(ext, Irp, stack, IoControlCode);             // recheck params
+            status = sub_11570(ext, Irp, stack, IoControlCode);             
             break;
         }
 
@@ -102,13 +103,13 @@ NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
 
         case 0xC3502580:
         {
-            status = GIO_MSR(ext, Irp, stack, IoControlCode);   // recheck params
+            status = GIO_MSR(ext, Irp, stack, IoControlCode);   
             break;
         }
 
         case 0xC3500E68:
         {
-            status = sub_11C70(DeviceObject, Irp, stack);               // recheck params
+            status = sub_11C70(DeviceObject, Irp, stack);               
             break;
         }
 
