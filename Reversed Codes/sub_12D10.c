@@ -9,7 +9,7 @@ struct _v2{
 
 struct _v3{
     ULONG Unknown1;         // 0x00
-    ULONG Unknown2;         // 0x04
+    ULONG Size;         // 0x04
 };
 
 NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
@@ -226,9 +226,36 @@ NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
                         goto Exit;
                     }
 
-                    PMDL mdl = IoAllocateMdl
+                    PMDL mdl = IoAllocateMdl(IoSpace, v3->Size, FALSE, FALSE, NULL);
+                    if (!mdl){
+                        MmUnmapIoSpace(IoSpace, v3->Size);
+                        status = STATUS_INSUFFICIENT_RESOURCES;
+                        goto Exit;
+                    }
+
+                    MmBuildMdlForNonPagedPool(mdl);
+                    PVOID MappedPage = MmMapLockedPages(mdl, KernelMode);
+                    struct _v2* AllocatedPool = (struct _v2*)ExAllocatePoolWithTag(NonPagedPool, 0x28, 'kdD');
+                    AllocatedPool->mdl = mdl;
+                    AllocatedPool->Unknown2 = IoSpace;
+                    AllocatedPool->BaseAddress = MappedPage;
+                    AllocatedPool->Size = v3->Size;
+                    AllocatedPool->Unknown1 = AllocatedPool;
+                    *buffer = MappedPage;
+                    Irp->IoStatus.Information = 0x10;
+                    status = STATUS_SUCCESS;
+                    goto Exit;
+                }
+                else{
+                    status = STATUS_INVALID_PARAMETER;
+                    goto Exit;
                 }
             }
+            else{
+                status = STATUS_INVALID_PARAMETER;
+                goto Exit;
+            }
+            break;
         }
     }
 
