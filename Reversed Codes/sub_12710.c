@@ -3,7 +3,7 @@
 struct _v2{
     ULONG64 Unknown1;   // 0x00
     PVOID Unknown2;     // 0x08
-}
+};
 
 NTSTATUS sub_12710(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, ULONG IoControlCode){
 
