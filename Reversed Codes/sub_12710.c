@@ -9,6 +9,7 @@ NTSTATUS sub_12710(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, UL
 
     UNREFERENCED_PARAMETER(stack);
     UNREFERENCED_PARAMETER(IoControlCode);
+    UNREFERENCED_PARAMETER(ext);
 
     Irp->IoStatus.Information = 0;
     struct _v2 v2 = Irp->AssociatedIrp.SystemBuffer
