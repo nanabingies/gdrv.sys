@@ -20,5 +20,5 @@ NTSTATUS sub_11570(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, UL
     MmUnmapIoSpace(MappedIo, v2->Size);
 
     Irp->IoStatus.Information = InputBufferLength;
-    return STATUS_SUCCESS
+    return STATUS_SUCCESS;
 }
