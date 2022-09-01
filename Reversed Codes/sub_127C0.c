@@ -1,6 +1,9 @@
 
 sub_127C0(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, ULONG IoControlCode) {
 
+    UNREFERENCED_PARAMTER(ext);
+    UNREFERENCED_PARAMTER(IoControlCode);
+
     ULONG InputBufferLength = stack->DeviceIoControl.InputBufferLength;
     Irp->IoStatus.Information = 0;
     if (InputBufferLength < 0x4) {
