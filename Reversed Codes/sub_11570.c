@@ -10,6 +10,9 @@ struct _v2{
 
 NTSTATUS sub_11570(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, ULONG IoControlCode) {
 
+    UNREFERENCED_PARAMTER(ext);
+    UNREFERENCED_PARAMTER(IoControlCode);
+
     ULONG InputBufferLength = stack->DeviceIoControl.InputBufferLength;
     struct _v2* v2 = Irp->AssociatedIrp.SystemBuffer;
     PHYSICAL_ADDRESS PhysicalAddress;
