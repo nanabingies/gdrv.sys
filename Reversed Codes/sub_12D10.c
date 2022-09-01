@@ -15,6 +15,8 @@ struct _v3{
 
 NTSTATUS sub_12D10(_In_ PDEVICE_OBJECT DeviceObject, _In_ PIRP Irp){
 
+    UNREFERENCED_PARAMTER(DeviceObject);
+
     PIO_STACK_LOCATION stack = IoGetCurrentIrpStackLocation(Irp);
     Irp->IoStatus.Information = 0;
     PVOID ext = &DeviceObject->DeviceExtension;
