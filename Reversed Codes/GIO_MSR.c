@@ -12,6 +12,9 @@ struct _v2{
 
 NTSTATUS GIO_MSR(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, ULONG IoControlCode) {
 
+    UNREFERENCED_PARAMTER(ext);
+    UNREFERENCED_PARAMTER(IoControlCode);
+
     ULONG OutputBufferLength = stack->DeviceIoControl.OutputBufferLength;
     ULONG InputBufferLength = stack->DeviceIoControl.InputBufferLength;
     struct _v2* v2 = (struct _v2*)Irp->AssociatedIrp.SystemBuffer;
