@@ -20,6 +20,8 @@ struct _v3{
 
 NTSTATUS sub_11C70(PDEVICE_OBJECT DeviceObject, PIRP Irp, PIO_STACK_LOCATION stack) {
 
+    UNREFERENCED_PARAMTER(DeviceObject);
+
     DbgPrint("Entered SmartFanOFF");
     ULONG InputBufferLength = stack->DeviceIoControl.InputBufferLength;
     ULONG OutputBufferLength = stack->DeviceIoControl.OutputBufferLength;
