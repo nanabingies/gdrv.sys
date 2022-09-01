@@ -9,6 +9,7 @@ NTSTATUS GIO_memcpy(PDEVICE_EXTENSION ext, PIRP Irp, PIO_STACK_LOCATION stack, U
 
     UNREFERENCED_PARAMTER(ext);
     UNREFERENCED_PARAMTER(IoControlCode);
+    UNREFERENCED_PARAMTER(stack);
 
     struct _v2* v2 = (struct _v2*)Irp->AssociatedIrp.SystemBuffer;
     Irp->IoStatus.Information = 0;
