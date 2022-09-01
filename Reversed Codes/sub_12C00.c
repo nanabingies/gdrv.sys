@@ -10,6 +10,8 @@ struct _v2{
 
 NTSTATUS sub_12C00(PDEVICE_OBJECT DeviceObject, PIRP Irp, PIO_STACK_LOCATION stack) {
 
+    UNREFERENCED_PARAMTER(DeviceObject);
+
     DbgPrint("Entry IoctlSMBUSCmd");
 
     ULONG InputBufferLength = stack->DeviceIoControl.InputBufferLength;
