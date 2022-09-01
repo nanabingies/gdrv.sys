@@ -10,6 +10,10 @@ struct _v2{
 
 NTSTATUS map_physical(PDEVICE_OBJECT DeviceObject, PVOID buffer, ULONG InputBufferLength, ULONG OutputBufferLength) {
 
+    UNREFERENCED_PARAMTER(DeviceObject);
+    UNREFERENCED_PARAMTER(InputBufferLength);
+    UNREFERENCED_PARAMTER(OutputBufferLength);
+    
     UNICODE_STRING uString;
     RtlInitUnicodeString(&uString, L"\\Device\\PhysicalMemory");
 
